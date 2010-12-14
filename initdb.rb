@@ -12,7 +12,7 @@ end
 
 ActiveRecord::Migration.create_table :items do |t|
   t.text :name, :null => false
-  t.text :type, :null => false
+  t.text :attr, :null => false
   t.integer :room_id
   t.integer :item_id
   t.integer :mobile_id
@@ -25,5 +25,6 @@ ActiveRecord::Migration.create_table :rooms do |t|
   t.timestamps
 end
 
-Room.create! :name => "THE ARCTIC", :desc => "It is very cold here"
-
+room1 = Room.create! :name => "the arctic", :desc => "It is very cold here"
+Item.create! :name => "ball", :attr => "red", :room => room1
+Mobile.create! :name => "Joe", :room => room1
